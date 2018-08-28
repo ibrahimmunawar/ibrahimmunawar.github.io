@@ -2,11 +2,59 @@
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 
-  <!-- import events.js script -->
-    <script src="https:ibrahimmunawar.github.io/events.js"></script>
+<script>
+
+var scene
+var AR-Object01
+var AR-Object02
+var AR-VideoScreen
+
+AFRAME.registerComponent('markerhandler', {
+
+  init: function() {
+
+    // Set up the tick throttling. Will check if marker is active every 500ms
+    this.tick = AFRAME.utils.throttleTick(this.tick, 500, this);
+  },
+
+  tick: function(t, dt) {
+
+    if (document.querySelector("#hiroMarker").object3D.visible == true && playing == false) {
+      // MARKER IS PRESENT
+      //alert("MARKER IS PRESENT")
+
+  		scene = document.querySelector('#a-scene');
+  	  AR-Object01 = document.querySelector('#Object01');
+    	AR-Object02 = document.querySelector('#Object02');
+      AR-VideoScreen =  document.querySelector('#videoScreen');
+
+      AR-Object01.addEventListener('click', function () { console.log("object01 clickable in AR") });
+      AR-Object02.addEventListener('click', function () { console.log("object02 clickable in AR") });
+      videoScreen.addEventListener('click', function () { playPauseVideo(); console.log("Video Play Toggle") });
+      playing = true;
+
+    }
+
+    }else {
+      // MARKER IS HIDDEN, do nothing (up to you)
+    }
+
+});
+
+function playPauseVideo(){
+
+if (video.paused)
+    video.play();
+  else
+    video.pause();
+}
+
+
+</script>
+
 
 <body style='margin : 0px; overflow: hidden;'>
-    <a-scene embedded arjs='trackingMethod: best;'>
+    <a-scene id="a-scene" cursor="rayOrigin: mouse" embedded arjs='trackingMethod: best;' >
 	          <a-assets>
 
       <video id="video" loop="true" src="ibrahimmunawar.github.io/Uses.mp4" webkit-playsinline>
@@ -20,7 +68,7 @@
 
 		<!-- handle hiro marker -->
 		<a-marker preset='hiro'>
-  			<a-entity scale="3 3 3" text="font: exo2bold; value: Crypto Craze!"  position="1 0.8 0"></a-entity>
+  			<a-entity scale="3 3 3" text="font: exo2bold; value: Crypto Crazy!"  position="1 0.8 0"></a-entity>
        			<a-entity position="0 0.1 0" scale="0.005 0.005 0.005" gltf-model="url(ibrahimmunawar.github.io/bitcoin/scene.gltf);" animation-mixer="loop:repeat" rotation="" visible="">
 		</a-marker>
 
@@ -35,7 +83,7 @@
 		
 
 		<!-- handle kanji marker -->
-		<a-marker markerhandler emitevents="true" cursor="rayOrigin: mouse" id="animated-marker" preset='kanji'>
+		<a-marker preset='kanji' markerhandler emitevents="true" id="hiroMarker">
 			
 			    <a-video scale="0.11 0.11 0.11" position="0 0.1 0" id="videoScreen" src="#video" width="16" height="9" autoplay=true></a-video>
 
