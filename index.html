@@ -1,0 +1,45 @@
+<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"></script>
+<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+
+
+
+<body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs='trackingMethod: best;' >
+
+	    
+<!-- handle unknown marker -->
+		<!-- <a-marker type='unknown'>
+			<a-box depth="1" height="1" width="1" position='0 0.5 0' material='opacity: 0.5; side:double; color:blue;'></a-box>
+		</a-marker> -->
+
+		<!-- handle hiro marker -->
+		<a-marker preset='hiro'>
+  			<a-entity scale="3 3 3" text="font: exo2bold; value: Crypto Crazy!"  position="1 0.8 0"></a-entity>
+       			<a-entity position="0 0.1 0" scale="0.005 0.005 0.005" gltf-model="url(ibrahimmunawar.github.io/bitcoin/scene.gltf);" animation-mixer="loop:repeat" rotation="" visible="">
+		</a-marker>
+
+		<!-- handle matrix marker -->
+		<a-marker type='barcode' value='5'>
+			<a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:pink;'>
+				<a-torus-knot radius='0.26' radius-tubular='0.05'>
+					<a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+				</a-torus-knot>
+			</a-box>
+		</a-marker>
+		
+
+		<!-- handle kanji marker -->
+    
+    			<a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:pink;'>
+				<a-torus-knot radius='0.26' radius-tubular='0.05'>
+					<a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+				</a-torus-knot>
+			</a-box>
+	
+		</a-marker>
+		
+		<!-- add a simple camera -->
+		<a-entity camera></a-entity>
+	</a-scene>
+</body>
