@@ -7,6 +7,8 @@ var londonModel = document.querySelector('#london'),
 		switchBtn = $(".switch"),
 		gotitBtn = $(".gotit"); 
 
+console.log(5 + 7);
+
 
 gotitBtn.click(function(){
 	gotitBtn.parent().css({
@@ -14,6 +16,7 @@ gotitBtn.click(function(){
 	});
 });
 
+console.log(5 + 8);
 
 rotateBtn.click(function(){
 	if (rotateBtn.hasClass("rotate_fade")){
