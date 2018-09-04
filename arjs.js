@@ -1,5 +1,7 @@
 console.clear()
 
+console.log(5 + 6);
+
 var londonModel = document.querySelector('#london'),
 		kyivModel = document.querySelector('#kyiv'),
 		rotateBtn = $(".rotate"),
