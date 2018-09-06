@@ -51,6 +51,9 @@
 -->
 
 <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
+	
+	<a-asset-item id="chicken" src="ibrahimmunawar.github.io/Chicken.obj.obj"></a-asset-item>
+	
     <a-marker preset='custom' url='pattern.patt'>
         <a-box position='0 0.5 0' material='color: green;opacity: 0.5'></a-box>
     </a-marker>
@@ -59,7 +62,7 @@
     </a-marker>
     <a-marker preset='custom' url='Marker2.patt'>
 	<a-entity scale="3 3 3" text="font: exo2bold; value: Crypto Crazyjghj!"  position="1 0.8 0"></a-entity>
-	<a-entity position="0 0.1 0" scale="0.5 0.5 0.5" gltf-model="url(ibrahimmunawar.github.io/scene.gltf);">
+	<a-entity position="0 0 0" scale="5 5 5" gltf-model="url(ibrahimmunawar.github.io/scene.gltf);">
     </a-marker>
     <a-entity camera></a-entity>
 </a-scene>
